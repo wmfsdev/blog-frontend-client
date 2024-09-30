@@ -1,25 +1,17 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+import { Link, useLoaderData } from 'react-router-dom'
 
 function Article() {
-
-    const [articles, setArticles] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-          const response = await fetch("http://localhost:3000/articles", { mode: 'cors' })
-          const data = await response.json()
-          setArticles(data)
-        }
-        fetchData()
-      }, [])
+  
+    const articles = useLoaderData()
 
       return (
         <div className='articles'>
           {
             articles.map((article) => {
               return (
-                <Link state={article} key={article._id} to={`article/${article._id}`}>
+                // link state passed to Article useLocation
+                <Link state={article} key={article.id} to={`article/${article.id}`}>
                   <div className='article-post'>
                     <h2>{article.title}</h2>
                     <p>{article.body}</p>
@@ -29,7 +21,6 @@ function Article() {
             })
           }
         </div>
-        
       )
 }
 
