@@ -1,29 +1,25 @@
-import { useParams } from "react-router-dom"
-import { useLocation } from "react-router-dom";
- 
+import { useLoaderData, useLocation, Outlet } from "react-router-dom"
+
 const Article = () => {
+    // from Articles Link... how to re-render on state change?
+    
+    // maybe forget Link and have it use it's own dedicated Loader
+    // to make a request for just comments
 
-    const { id } = useParams()
-    let { state } = useLocation();
+    const { state } = useLocation();
+    console.log("useLocation: ", state)
 
-    if (!state) {
-        console.log(id)
         return (
             <>
-            <h2>no state</h2>
-            <p>{id}</p>
-            </>
-        )  
-    } else {
-        return (
             <div id="article">
                 <h1>{state.title}</h1>
                 <p>{state.body}</p>
-                <p>{state.timestamp}</p>
             
             </div>
+            <Outlet context={state.comments} />
+            {/*goes to Comments useOutlet*/}
+            </>
         )
-    }
 }
 
 export default Article
