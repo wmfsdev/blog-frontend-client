@@ -5,9 +5,8 @@ import Signup from "./Signup";
 const Body = () => {
     const { name } = useParams();
   
-    return (
+      return (
       <>
-        
         {name === "signup" ? (
           <Signup />
         ) : name === "login" ? (
