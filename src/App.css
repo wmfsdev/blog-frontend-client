@@ -2,6 +2,7 @@
 body {
   margin: 0px;
   font-family: Oswald;
+  background-color: antiquewhite;
 }
 
 #root {
@@ -60,4 +61,35 @@ body {
 
 .article-post h2 {
   text-transform: uppercase;
+}
+
+/* ARTICLE */
+
+#article {
+  border: 3px;
+  border-width: 3px;
+  border-style: dashed;
+  padding: 40px;
+}
+
+.comments {
+  border: 3px;
+  border-width: 3px;
+  border-style: dashed;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;;
+}
+
+.comments > div {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 10px;
+
 }
