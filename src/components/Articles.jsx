@@ -1,7 +1,7 @@
 
 import { Link, useLoaderData } from 'react-router-dom'
 
-function Article() {
+const Articles = () => {
   
     const articles = useLoaderData()
 
@@ -10,8 +10,7 @@ function Article() {
           {
             articles.map((article) => {
               return (
-                // link state passed to Article useLocation
-                <Link state={article} key={article.id} to={`article/${article.id}`}>
+                <Link key={article.id} to={`article/${article.id}`}>
                   <div className='article-post'>
                     <h2>{article.title}</h2>
                     <p>{article.body}</p>
@@ -24,4 +23,4 @@ function Article() {
       )
 }
 
-export default Article
+export default Articles
