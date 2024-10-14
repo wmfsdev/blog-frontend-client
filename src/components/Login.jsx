@@ -19,7 +19,7 @@ const Login = () => {
     async function login(username, password) {
         try {
             console.log("login click attempt")
-            const response = await fetch('http://localhost:4000/login-form', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/login-form`, {
                 method: "POST",
                 body: JSON.stringify({
                     username: username,
@@ -34,7 +34,6 @@ const Login = () => {
                 console.log("client unauthenticated")
                 const unauth = await response.json()
                 console.log("unauth response", unauth)
-                // set unauthorised error message
                 setError(unauth[0].message)
                 return
             }
@@ -51,7 +50,6 @@ const Login = () => {
                 const errors = await response.json()
                 const status = await response.status
                 console.log("validation errors", status, errors)
-                // set validation error message
                 setError(errors[0].msg)
             }
         } catch(err) {
@@ -71,7 +69,6 @@ const Login = () => {
                 <input name="password" type="password" required={true} /></label>
                 <button type="submit">submit</button>
             </form>
-            {/*need a way to distinguish between array of errors and non array*/}
             { error && <p>{error}</p> }
         </div>    
     )
