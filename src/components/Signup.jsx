@@ -19,7 +19,7 @@ const Signup = () => {
     async function signup(username, password, confirmPwd) {
 
         try {
-            const response = await fetch('http://localhost:4000/signup-form', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/signup-form`, {
                 method: "POST",
                 body: JSON.stringify({
                     username: username,
@@ -40,6 +40,13 @@ const Signup = () => {
                 console.log("success: signup => login")
                 navigate("/")
             }
+
+            if (response.status === 422) {
+                const errors = await response.json()
+                const status = await response.status()
+                console.log("validation errors", status, errors)
+                setError(errors)
+            }
         } catch(err) {
             console.log(err)
         }
@@ -52,11 +59,12 @@ const Signup = () => {
                 <label htmlFor="username">Username
                 <input id="username" name="username" type="text" /></label>
                 <label htmlFor="password">Password
-                <input id="password" name="password" type="password" required="true" /></label>
+                <input id="password" name="password" type="password" required={true} /></label>
                 <label htmlFor="password_confirm">Confirm
                 <input id="password_confirm" name="password_confirm" type="password" /></label>
                 <button type="submit">submit</button>
             </form>
+            { error && error.map((item, index) => <p key={index}>{item.msg}</p> )}
         </div>
     )
 }
