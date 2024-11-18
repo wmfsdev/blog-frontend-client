@@ -8,38 +8,43 @@ function Comments() {
 
     const { id } = useParams()
     const comments = useLoaderData()
-    console.log("article id: ", id)
     const token = localStorage.getItem("token");
 
     return (
         <>
-        <h2>Comments</h2>
-        <div className="comments">
-        { comments.map((comment) => {
-            const body = comment.body
-            const username = comment.author.username
-            const timestamp = comment.timestamp
-            const commentId = comment.id
+        <div className="comments-wrapper">
+            <h2>COMMENTS</h2>
+            <div className="comments">
+                { comments.map((comment) => {
+                    const body = comment.body
+                    const username = comment.author.username
+                    const timestamp = comment.timestamp
+                    const commentId = comment.id
 
-            let canDeleteComment = false
+                    let canDeleteComment = false
 
-            if (token) {
-                const decoded = jwtDecode(token)
-                if (username === decoded.username) {
-                    canDeleteComment = true
+                    if (token) {
+                        const decoded = jwtDecode(token)
+                        if (username === decoded.username) {
+                            canDeleteComment = true
+                        }
+                    }
+
+                    return (
+                        <div key={commentId} className={`comment-${commentId}`}>
+                            <div className="comment-body">
+                                <p>{body}</p>
+                            </div>
+                            <div className="comment-info">
+                                <p className="comment-username">user: {username}</p>
+                                <p>{timestamp}</p>
+                             { canDeleteComment ? <CommentDelete commentId={commentId} articleId={id} /> : null }
+                            </div>
+                        </div>
+                    )
+                }) 
                 }
-            }
-
-            return (
-                <div key={commentId} className={`comment-${commentId}`}>
-                    <p className="comment-body">comment: {body}</p>
-                    <p className="comment-username">user: {username}</p>
-                    <p>{timestamp}</p>
-                     { canDeleteComment ? <CommentDelete commentId={commentId} articleId={id} /> : null }
-                </div>
-            )
-        }) 
-        }
+            </div>
         </div>
         { token ? <CommentForm state={id} /> : null } 
         </>
