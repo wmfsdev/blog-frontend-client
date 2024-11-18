@@ -5,6 +5,12 @@ const Articles = () => {
   
     const articles = useLoaderData()
 
+    function strip(html){
+       let doc = new DOMParser().parseFromString(html, 'text/html');
+       return doc.body.textContent || "";
+    }
+   // console.log(articles[1].body)
+
       return (
         <div className='articles'>
           {
@@ -12,8 +18,8 @@ const Articles = () => {
               return (
                 <Link key={article.id} to={`article/${article.id}`}>
                   <div className='article-post'>
-                    <h2>{article.title}</h2>
-                    <p>{article.body}</p>
+                    <h2>{strip(article.title)}</h2>
+                    <p>{strip(article.body)}</p>
                   </div>
                 </Link>
               )
