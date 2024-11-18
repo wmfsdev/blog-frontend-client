@@ -1,15 +1,15 @@
 import { useLoaderData, Outlet } from "react-router-dom"
+import DOMPurify from 'dompurify'
 
 const Article = () => {
 
-    const article = useLoaderData()
-    console.log("react article", article)
+    const article = useLoaderData()[0]
 
         return (
             <>
             <div id="article">
-                <h1>{article.title}</h1>
-                <p>{article.body}</p>
+                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.title) }}/>
+                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.body) }}/>
             </div>
             <Outlet  />
             </>
