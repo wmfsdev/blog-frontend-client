@@ -30,19 +30,17 @@ const CommentForm = () => {
 			})
 			// 401 UNAUTHROISED: no authentication
 			if (response.status === 401) {
-				console.log("client unauthenticated")
-	            const unauth = await response.json()
-	            console.log("unauth response", unauth)
+				const unauth = await response.json()
 				setError(unauth[0].message)
 				return
 			}
 			if (response.status === 200) {
+				const data = await response.json()
 				navigate(`/article/${id}`)
 			} else {
 				// validation error handling
 				const errors = await response.json()
                 const status = await response.status
-                console.log("validation errors", status, errors)
                 setError(errors[0].msg)
 			}
 		} catch(err) {
@@ -54,8 +52,8 @@ const CommentForm = () => {
 		<>
 		<form method="POST" onSubmit={handleSubmit}>
 			<label>
-				Comment: 
-				<textarea name="comment" rows="5" cols="60" />
+				Leave a comment: 
+				<textarea name="comment" rows="3" cols="80" />
 			</label>
 			<button type="submit">SUBMIT</button>
 		</form>
