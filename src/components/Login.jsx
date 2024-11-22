@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useOutletContext } from "react-router-dom"
+
 
 const Login = () => {
     
@@ -8,6 +9,8 @@ const Login = () => {
     const [ error, setError ] = useState(false)
     const navigate = useNavigate()
 
+    const [ tokenState, setTokenState ] = useOutletContext();
+   
     function handleSubmit(e) {
         e.preventDefault()
         const data = new FormData(e.target)
@@ -44,6 +47,7 @@ const Login = () => {
                 const value = Object.values(token)
                 localStorage.setItem(key, value)
                 console.log("success: login")
+                setTokenState(true)
                 navigate("/")
             } else {
                 // validation error handling
