@@ -10,6 +10,12 @@ function Comments() {
     const comments = useLoaderData()
     const token = localStorage.getItem("token");
 
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp)
+        console.log(date.toLocaleString)
+        return date.toLocaleString()
+    }
+
     return (
         <>
         <div className="comments-wrapper">
@@ -36,8 +42,8 @@ function Comments() {
                                 <p>{body}</p>
                             </div>
                             <div className="comment-info">
-                                <p className="comment-username">user: {username}</p>
-                                <p>{timestamp}</p>
+                                <p className="comment-username">{username}</p>
+                                <p>{formatDate(timestamp)}</p>
                              { canDeleteComment ? <CommentDelete commentId={commentId} articleId={id} /> : null }
                             </div>
                         </div>
@@ -45,8 +51,8 @@ function Comments() {
                 }) 
                 }
             </div>
+            { token ? <CommentForm state={id} /> : null } 
         </div>
-        { token ? <CommentForm state={id} /> : null } 
         </>
     )
 }
