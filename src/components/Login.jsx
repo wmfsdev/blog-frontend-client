@@ -4,8 +4,6 @@ import { useNavigate, useOutletContext } from "react-router-dom"
 
 const Login = () => {
     
-    // authenticates - expect server response with signed token
-    // set token as header auth in local storage
     const [ error, setError ] = useState(false)
     const navigate = useNavigate()
 
@@ -21,7 +19,6 @@ const Login = () => {
 
     async function login(username, password) {
         try {
-            console.log("login click attempt")
             const response = await fetch(`${import.meta.env.VITE_API_URL}/login-form`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -34,26 +31,21 @@ const Login = () => {
             })
             // unauthenticated
             if (response.status === 401) {
-                console.log("client unauthenticated")
                 const unauth = await response.json()
-                console.log("unauth response", unauth)
                 setError(unauth[0].message)
                 return
             }
             if (response.status === 200) {
                 const token = await response.json()
-                console.log("react token log", token)
                 const key = Object.keys(token)
                 const value = Object.values(token)
                 localStorage.setItem(key, value)
-                console.log("success: login")
                 setTokenState(true)
                 navigate("/")
             } else {
                 // validation error handling
                 const errors = await response.json()
-                const status = await response.status
-                console.log("validation errors", status, errors)
+                // const status = await response.status
                 setError(errors[0].msg)
             }
         } catch(err) {
