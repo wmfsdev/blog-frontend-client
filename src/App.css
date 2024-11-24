@@ -59,9 +59,10 @@ a {
 
 /* ARTICLES */
 
-.articles {  display: grid;
+.articles {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0px 20px;
+  gap: 20px 20px;
   grid-auto-flow: row;
 }
 
@@ -69,22 +70,34 @@ a {
   display: contents;
 }
 
+.articles ul {
+  max-width: 900px;
+}
 
 .article-post {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
   border-style: solid;
   border-color: rgb(104, 180, 221);
   border-width: 2px;
   border-radius: .2rem;
-  justify-content: space-between;
+ 
   background-color: antiquewhite;
+  overflow: clip;
+  height: 300px;
+  overflow-clip-margin: content-box;
 }
 
 .article-post h2 {
   text-transform: uppercase;
-  max-height:
+  margin-top: 0px;
+  min-height: 50px;
+}
+
+.article-post p {
+  text-align: justify;
+  align-self: center;
 }
 
 /* ARTICLE */
