@@ -35,9 +35,12 @@ export async function articlesLoader() {
 }
 
 export async function articleLoader({ params }) {
+    console.log("article loader")
     try {
+         console.log("in article try")
         const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${params.id}`) 
         const data = await response.json()
+        console.log(data)
         return data
     } catch(err) {
         return err
@@ -45,9 +48,12 @@ export async function articleLoader({ params }) {
 }
 
 export async function commentLoader({ params }) {
+    console.log("comment loader")
     try {
+        console.log("in comment try")
         const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${params.id}/comments`) 
         const data = await response.json()
+        console.log(data)
         return data
     } catch(err) {
         return err
