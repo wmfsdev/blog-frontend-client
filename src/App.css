@@ -77,12 +77,11 @@ a {
 .article-post {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 0px 30px 15px 20px;
   border-style: solid;
   border-color: rgb(104, 180, 221);
   border-width: 2px;
   border-radius: .2rem;
- 
   background-color: antiquewhite;
   overflow: clip;
   height: 300px;
@@ -91,8 +90,6 @@ a {
 
 .article-post h2 {
   text-transform: uppercase;
-  margin-top: 0px;
-  min-height: 50px;
 }
 
 .article-post p {
