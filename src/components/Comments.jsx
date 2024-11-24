@@ -50,7 +50,7 @@ function Comments() {
                 }) 
                 }
             </div>
-            { token ? <CommentForm state={id} /> : null } 
+            { token ? <CommentForm state={id} /> : <>Sign-up if you wish to leave a comment</> } 
         </div>
         </>
     )
