@@ -6,7 +6,7 @@ const CommentDelete = ({commentId, articleId}) => {
 	const token = localStorage.getItem("token");
 	const navigate = useNavigate();
 
-	const handleSubmit =(e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
 		const data = new FormData(e.target)
 		const commentId = data.get("commentId")
@@ -23,8 +23,7 @@ const CommentDelete = ({commentId, articleId}) => {
 					comment: commentId,
 				}),
 				headers: {
-					'Content-type': 'application/json; charset=UTF-8',
-                    'Authorization': `Bearer ${token}`
+					'Content-type': 'application/json; charset=UTF-8', 'Authorization': `Bearer ${token}`
 				},
 			})
 
