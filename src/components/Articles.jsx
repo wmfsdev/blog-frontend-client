@@ -9,7 +9,6 @@ const Articles = () => {
        let doc = new DOMParser().parseFromString(html, 'text/html');
        return doc.body.textContent || "";
     }
-   // console.log(articles[1].body)
 
       return (
         <div className='articles'>

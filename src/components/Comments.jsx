@@ -12,7 +12,6 @@ function Comments() {
 
     const formatDate = (timestamp) => {
         const date = new Date(timestamp)
-        console.log(date.toLocaleString)
         return date.toLocaleString()
     }
 
