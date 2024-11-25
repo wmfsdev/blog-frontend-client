@@ -159,6 +159,10 @@ button {
   text-align: left;
 }
 
+.comment-username {
+  font-weight: bold;
+}
+
 .comment-body {
   padding-left: 10px;
 }
@@ -170,5 +174,4 @@ button {
   justify-content: right;
   gap: 20px;
   height: fit-content;
-
 }
