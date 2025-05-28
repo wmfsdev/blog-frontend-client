@@ -54,7 +54,9 @@ const CommentForm = () => {
 		<form method="POST" onSubmit={handleSubmit}>
 			<label>
 				Leave a comment: 
-				<textarea disabled={status === 'submitting'} name="comment" rows="3" cols="80" />
+				<textarea disabled={status === 'submitting'} placeholder="
+  Cannot exceed 500 characters.
+" name="comment" rows="3" cols="80" />
 			</label>
 			<button disabled={status === 'submitting'} type="submit">SUBMIT</button> 
 		</form>
