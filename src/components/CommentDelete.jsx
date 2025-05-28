@@ -16,24 +16,23 @@ const CommentDelete = ({commentId, articleId}) => {
 
 	async function deleteComment(commentId, articleId) {
 		try {
-			console.log("try comment DELETE")
-			const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${articleId}/comments/${commentId}`, {
-				method: "DELETE",
-				body: JSON.stringify({
-					comment: commentId,
-				}),
-				headers: {
-					'Content-type': 'application/json; charset=UTF-8', 'Authorization': `Bearer ${token}`
-				},
-			})
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${articleId}/comments/${commentId}`, {
+        method: "DELETE",
+        body: JSON.stringify({
+          comment: commentId,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8', 'Authorization': `Bearer ${token}`
+        },
+      })
 
-		if (response.status === 200) {
-			navigate(`/article/${articleId}`)
-		}
+      if (response.status === 200) {
+        navigate(`/article/${articleId}`)
+      }
 
-		if (response.status === 401) {
-			throw err
-		}
+      if (response.status === 401) {
+        throw err
+      }
 
 		} catch(err) {
 			console.log(err)

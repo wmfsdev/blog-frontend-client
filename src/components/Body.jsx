@@ -3,19 +3,19 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 const Body = () => {
-    const { name } = useParams();
+  const { name } = useParams();
   
-      return (
-      <>
-        {name === "signup" ? (
-          <Signup />
-        ) : name === "login" ? (
-          <Login />
-        ) : (
-          <DefaultProfile />
-        )}
-      </>
-    );
+  return (
+  <>
+    {name === "signup" ? (
+      <Signup />
+    ) : name === "login" ? (
+      <Login />
+    ) : (
+      <DefaultProfile />
+    )}
+  </>
+);
 };
 
 export default Body

@@ -10,22 +10,22 @@ const Articles = () => {
        return doc.body.textContent || "";
     }
 
-      return (
-        <div className='articles'>
-          {
-            articles.map((article) => {
-              return (
-                <Link key={article.id} to={`article/${article.id}`}>
-                  <div className='article-post'>
-                    <h2>{strip(article.title)}</h2>
-                    <p>{strip(article.body)}</p>
-                  </div>
-                </Link>
-              )
-            })
-          }
-        </div>
-      )
+    return (
+      <div className='articles'>
+        {
+          articles.map((article) => {
+            return (
+              <Link key={article.id} to={`article/${article.id}`}>
+                <div className='article-post'>
+                  <h2>{strip(article.title)}</h2>
+                  <p>{strip(article.body)}</p>
+                </div>
+              </Link>
+            )
+          })
+        }
+      </div>
+    )
 }
 
 export default Articles

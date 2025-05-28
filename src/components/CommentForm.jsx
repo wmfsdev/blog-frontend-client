@@ -19,16 +19,15 @@ const CommentForm = () => {
 	async function submitComment(text) {
 		setStatus('submitting')
 		try {
-			console.log("try comment SUBMIT")
 			const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${id}/comments`, {
 				method: "POST",
-                body: JSON.stringify({
-                    comment: text,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                    'Authorization': `Bearer ${token}`
-                },
+        body: JSON.stringify({
+          comment: text,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`
+        },
 			})
 			// 401 UNAUTHROISED: no authentication
 			if (response.status === 401) {
@@ -38,15 +37,12 @@ const CommentForm = () => {
 				return
 			}
 			if (response.status === 200) {
-				// const data = await response.json()
 				setStatus('pending')
 				navigate(`/article/${id}`)
 			} else {
-				// validation error handling
 				const errors = await response.json()
-                // const status = await response.status
 				setStatus('pending')
-                setError(errors[0].msg)
+        setError(errors[0].msg)
 			}
 		} catch(err) {
 			console.log(err)
