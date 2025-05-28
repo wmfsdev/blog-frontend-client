@@ -29,13 +29,14 @@ const Login = () => {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
             })
-            // unauthenticated
+
             if (response.status === 401) {
                 const unauth = await response.json()
                 setError(unauth[0].message)
                 return
             }
             if (response.status === 200) {
+                console.log("SUCCESSFUL LOGIN")
                 const token = await response.json()
                 const key = Object.keys(token)
                 const value = Object.values(token)
@@ -45,7 +46,6 @@ const Login = () => {
             } else {
                 // validation error handling
                 const errors = await response.json()
-                // const status = await response.status
                 setError(errors[0].msg)
             }
         } catch(err) {
@@ -60,9 +60,9 @@ const Login = () => {
             <h1>Login</h1>
             <form method="post" onSubmit={handleSubmit}>
                 <label htmlFor="username">Username
-                <input name="username" type="text" required={true} /></label>
+                <input name="username" type="text" minLength="5" maxLength="18" required={true} /></label>
                 <label htmlFor="password">Password
-                <input name="password" type="password" required={true} /></label>
+                <input name="password" type="password" minLength="6" maxLength="25" required={true} /></label>
                 <button type="submit">submit</button>
             </form>
             { error && <p>{error}</p> }

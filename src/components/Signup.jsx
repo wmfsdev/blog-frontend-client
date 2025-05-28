@@ -17,7 +17,6 @@ const Signup = () => {
     }
 
     async function signup(username, password, confirmPwd) {
-
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/signup-form`, {
                 method: "POST",
@@ -57,11 +56,11 @@ const Signup = () => {
             <h1>Signup</h1>
             <form method="post" onSubmit={handleSubmit}>
                 <label htmlFor="username">Username
-                <input id="username" name="username" type="text" /></label>
+                <input pattern="[A-Za-z0-9]{5,18}" id="username" name="username" type="text" required="true" /></label>
                 <label htmlFor="password">Password
-                <input id="password" name="password" type="password" required={true} /></label>
+                <input id="password" name="password" type="password" minLength="6" maxLength="25" required="true" /></label>
                 <label htmlFor="password_confirm">Confirm
-                <input id="password_confirm" name="password_confirm" type="password" /></label>
+                <input id="password_confirm" name="password_confirm" type="password" required="true" /></label>
                 <button type="submit">submit</button>
             </form>
             { error && error.map((item, index) => <p key={index}>{item.msg}</p> )}
