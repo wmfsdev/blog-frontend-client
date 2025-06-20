@@ -14,23 +14,30 @@ const Navigation = () => {
   if (tokenState === null) {
     return (
       <>
-      <h1>BLOG</h1>
-      <div className="navigation">
-        <Link to="/">ARTICLES</Link>
-        <Link to="login">LOGIN</Link>
-        <Link to="signup">SIGNUP</Link>
-      </div>
+      <header>
+        <div className="account-nav">
+        <h1>
+          <Link to="/">A Pleasure to Read...</Link>
+        </h1>
+        <div className="navigation">
+          <Link to="login">LOGIN</Link>
+          <Link to="signup">SIGNUP</Link>
+        </div></div>
+      </header>
       <Outlet context={[ tokenState, setTokenState ]}/>
       </>
     )
   } else return (
     (
     <>
-    <h1>BLOG</h1>
-    <div className="navigation">
-      <Link to="/">ARTICLES</Link>
-      <Link to="/" onClick={logOut}>LOGOUT</Link>
-    </div>
+    <header>
+      <h1>
+        <Link to="/">A Pleasure to Read...</Link>
+      </h1>
+      <div className="navigation">
+        <Link to="/" onClick={logOut}>LOGOUT</Link>
+      </div>
+    </header>
     <Outlet context={[ tokenState, setTokenState ]}/>
     </>
     )
