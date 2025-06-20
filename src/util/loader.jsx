@@ -22,7 +22,8 @@ export async function loader({ params }) {
 }
 
 export async function articlesLoader() {
-  const token = localStorage.getItem("token")
+	const token = localStorage.getItem("token")
+
 	const headers = { 'Authorization': `Bearer ${token}` }
 	try {
 		const response = await fetch(`${import.meta.env.VITE_API_URL}/articles`, { headers })
