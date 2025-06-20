@@ -5,14 +5,14 @@
 
 body {
   margin: 0px;
-  font-family: Oswald;
+  font-family: "Oswald";
   background-color: antiquewhite;
 }
 
 #root {
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
-  /* text-align: center; */
   display: flex;
   flex-direction: column;
 }
@@ -22,12 +22,47 @@ body {
   text-align: right;
 }
 
+header {
+  font-family: "Poiret One", "Oswald", "Caveat", cursive;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0px 30px 0px 30px; 
+}
+
+.account-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(193 219 230);
+  padding: 0px 30px 0px 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  gap: 20px
+}
+
+.account-nav h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
 .navigation {
   text-align: right;
   display: flex;
   gap: 1rem;
-  height: 70px;
   font-size: 1.5rem;
+  align-items: center;
+}
+
+.navigation a {
+  color:rgb(78, 140, 169);
+  font-weight: 800;
+}
+
+h1 a {
+  color: rgb(83, 119, 163);
 }
 
 a {
@@ -39,6 +74,7 @@ a {
 .signup, .login {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 
 .signup form, .login form {
@@ -81,17 +117,14 @@ li > a:visited, a:link {
 }
 
 .articles div:first-child {
-  /* background-color: rgb(101, 145, 173); */
   grid-column: span 9;
-  /* grid-row: span 8; */
   grid-row: span 2;
 }
 
 .article-post {
   grid-column: span 3;
   grid-row: span 1;
-  padding: 0px 30px 15px 20px;
-  /* border-style: solid; */
+  padding: 0px 30px 15px 30px;
   border-color: rgb(104, 180, 221);
   border-width: 2px;
   border-radius: .2rem;
@@ -101,7 +134,10 @@ li > a:visited, a:link {
 .article-post img {
   border-radius: 1rem;
   width: 100%; 
- 
+}
+
+.article-post a {
+  color: rgb(101, 148, 185);
 }
 
 .article-post h2 {
@@ -122,6 +158,25 @@ li > a:visited, a:link {
 }
 
 @media (max-width: 500px) {
+  header {
+    padding: 0px
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .navigation {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    align-self: self-end;
+  }
+
+  .account-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
   .articles{
     gap: 0px,
   }
@@ -141,23 +196,26 @@ li > a:visited, a:link {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 80%;
+  max-width: 1200px;
   align-self: center;
+  padding: 0px 30px 0px 30px;
 }
 
 #article {
-  border: 3px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: teal;
-  border-radius: 5px;
   padding: 20px;
   min-width: 80%;
-  /* align-self: center; */
+  font-size: larger;
+  text-align: justify;
 }
 
 #article h1 {
   margin-bottom: 40px;
+  color: rgb(101, 148, 185);
+  
+}
+
+#article h3 {
+  color: rgb(79, 114, 141);
 }
 
 #article > div {
@@ -172,10 +230,7 @@ li > a:visited, a:link {
   margin-top: 40px;
   margin-bottom: 20px;
   padding: 0 20px 20px 20px;
-  /* min-width: 90%; */
-
   min-width: 90%;
-  /* align-self: center; */
 }
 
 .comments-wrapper form, label {
