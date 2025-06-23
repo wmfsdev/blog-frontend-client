@@ -16,13 +16,14 @@ const Navigation = () => {
       <>
       <header>
         <div className="account-nav">
-        <h1>
-          <Link to="/">A Pleasure to Read...</Link>
-        </h1>
-        <div className="navigation">
-          <Link to="login">LOGIN</Link>
-          <Link to="signup">SIGNUP</Link>
-        </div></div>
+          <h1>
+            <Link to="/">A Pleasure to Read...</Link>
+          </h1>
+          <div className="navigation">
+            <Link to="login">LOGIN</Link>
+            <Link to="signup">SIGNUP</Link>
+          </div>
+        </div>
       </header>
       <Outlet context={[ tokenState, setTokenState ]}/>
       </>
@@ -31,11 +32,13 @@ const Navigation = () => {
     (
     <>
     <header>
-      <h1>
-        <Link to="/">A Pleasure to Read...</Link>
-      </h1>
-      <div className="navigation">
-        <Link to="/" onClick={logOut}>LOGOUT</Link>
+      <div className="account-nav">
+        <h1>
+          <Link to="/">A Pleasure to Read...</Link>
+        </h1>
+        <div className="navigation">
+          <Link to="/" onClick={logOut}>LOGOUT</Link>
+        </div>
       </div>
     </header>
     <Outlet context={[ tokenState, setTokenState ]}/>
