@@ -75,6 +75,8 @@ a {
   display: flex;
   flex-direction: column;
   align-self: center;
+	align-items: center;
+	color:rgb(83, 119, 163);
 }
 
 .signup form, .login form {
@@ -157,12 +159,16 @@ li > a:visited, a:link {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   header {
     padding: 0px
   }
 
-  h1 {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .article-wrapper h1 {
     font-size: 2rem;
   }
 
@@ -191,7 +197,6 @@ li > a:visited, a:link {
 }
 
 /* ARTICLE */
-
 .article-wrapper {
   display: flex;
   flex-direction: column;
@@ -202,7 +207,6 @@ li > a:visited, a:link {
 }
 
 #article {
-  padding: 20px;
   min-width: 80%;
   font-size: larger;
   text-align: justify;
@@ -223,14 +227,11 @@ li > a:visited, a:link {
 }
 
 .comments-wrapper {
-  border: 3px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: teal;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding: 0 20px 20px 20px;
-  min-width: 90%;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .comments-wrapper form, label {
@@ -258,8 +259,10 @@ textarea {
 
 .comments > div {
   border-width: 1px;
-  border-color: black;
+  border-color: rgb(209, 209, 209);
   border-style: solid;
+  border-radius: 0.5rem;
+  border-bottom: 2px solid #aac6de;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -281,4 +284,163 @@ textarea {
   justify-content: right;
   gap: 20px;
   height: fit-content;
+}
+
+.comment-info button {
+  padding: 0.5rem;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+  transition: 0.3s;
+  align-self: center;
+}
+
+.comment-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.comment-form button {
+    padding: 0.8rem;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+    transition: 0.3s;
+    align-self: center;
+}
+
+textarea {
+  border: none;
+  border-bottom: 2px solid #ddd;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2196F3;
+}
+
+@media (max-width: 600px) {
+  .article-wrapper {
+    padding: 0px;
+  }
+
+  #article {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .comments-wrapper form {
+    flex-direction: column;
+    /* gap: 40px */
+  }
+
+  .comment-form button {
+    width: 100%;
+  }
+
+  textarea::placeholder {
+    position: relative;
+    top: 1rem;
+  }
+}
+
+  /* Material Design Form */
+.material-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.material-form .input-field {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.material-form input {
+    width: 100%;
+    padding: 0.8rem 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none;
+    transition: 0.2s;
+    background: transparent;
+}
+
+.material-form label {
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+    transition: 0.2s;
+    color: #999;
+}
+
+.material-form .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.material-form .bar:before {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #2196F3;
+    transition: 0.2s;
+    left: 50%;
+}
+
+.material-form input:focus ~ .bar:before {
+    width: 100%;
+    left: 0;
+}
+
+.material-form input:focus ~ label,
+.material-form input:valid ~ label {
+		top: -1.2rem;
+    font-size: 0.8rem;
+    color: #2196F3;
+}
+
+.material-form input:invalid ~ label  {
+	top: -1.2rem
+}
+
+.material-form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(33,150,243,0.3);
+    transition: 0.3s;
+}
+
+.material-form button:hover {
+    box-shadow: 0 4px 8px rgba(33,150,243,0.4);
+    transform: translateY(-1px);
 }
