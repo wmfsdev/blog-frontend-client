@@ -53,17 +53,36 @@ const Login = () => {
 	}
 
 	return (
+		// <div className="login">
+		// 	<h1>Login</h1>
+		// 	<form method="post" onSubmit={handleSubmit}>
+		// 		<label htmlFor="username">Username
+		// 		<input name="username" type="text" minLength="5" maxLength="18" required={true} /></label>
+		// 		<label htmlFor="password">Password
+		// 		<input name="password" type="password" minLength="6" maxLength="25" required={true} /></label>
+		// 		<button type="submit">submit</button>
+		// 	</form>
+		// 	{ error && <p>{error}</p> }
+		// </div>
+		
 		<div className="login">
-			<h1>Login</h1>
-			<form method="post" onSubmit={handleSubmit}>
-				<label htmlFor="username">Username
-				<input name="username" type="text" minLength="5" maxLength="18" required={true} /></label>
-				<label htmlFor="password">Password
-				<input name="password" type="password" minLength="6" maxLength="25" required={true} /></label>
+			<h1>LOGIN</h1>
+			<form method="post" onSubmit={handleSubmit} className="material-form">
+				<div className="input-field">
+					<input name="username" type="text" minLength="5" maxLength="18" required={true} />
+					<label htmlFor="username">Username</label>
+					<span className="bar"></span>
+				</div>
+				<div className="input-field">	
+					
+					<input name="password" type="password" minLength="6" maxLength="25" required={true} />
+					<label htmlFor="password">Password</label>
+					<span className="bar"></span>
+				</div>
 				<button type="submit">submit</button>
 			</form>
 			{ error && <p>{error}</p> }
-		</div>    
+		</div>  
 	)
 }
 

@@ -51,13 +51,9 @@ const CommentForm = () => {
 
 	return (
 		<>
-		<form method="POST" onSubmit={handleSubmit}>
-			<label>
-				Leave a comment: 
-				<textarea disabled={status === 'submitting'} placeholder="
-  Cannot exceed 500 characters.
-" name="comment" rows="3" cols="80" />
-			</label>
+		<form method="POST" className="comment-form" onSubmit={handleSubmit}>
+			<label>	Leave a comment: </label>
+			<textarea disabled={status === 'submitting'} placeholder="Cannot exceed 500 characters." name="comment" rows="3" cols="80" />
 			<button disabled={status === 'submitting'} type="submit">SUBMIT</button> 
 		</form>
 		{ error && <p>{error}</p> }

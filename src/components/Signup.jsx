@@ -47,19 +47,27 @@ const Signup = () => {
   }
   
   return (
+
     <div className="signup">
-      <h1>Signup</h1>
-      <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="username">Username
-        <input title="Username may only contain alphanumeric characters" pattern="[A-Za-z0-9]{5,18}" id="username" name="username" type="text" placeholder="Between 5 and 18 characters"  /></label>
-        <label htmlFor="password">Password
-        <input id="password" name="password" type="password" minLength="6" maxLength="25" required={true} /></label>
-        <label htmlFor="password_confirm">Confirm
-        <input id="password_confirm" name="password_confirm" type="password" required={true} /></label>
+      <h1>SIGNUP</h1>
+      <form method="post" onSubmit={handleSubmit} className="material-form">
+        <div className="input-field">
+          <input title="Username may only contain alphanumeric characters" pattern="[A-Za-z0-9]{5,18}" id="username" name="username" type="text" placeholder="Between 5 and 18 characters"  />
+          <label htmlFor="username">Username</label>
+        </div>
+        <div className="input-field">
+          <input id="password" name="password" type="password" minLength="6" maxLength="25" required={true} />
+          <label htmlFor="password">Password</label>   
+        </div>
+        <div className="input-field">
+          <input id="password_confirm" name="password_confirm" type="password" required={true} />
+          <label htmlFor="password_confirm">Confirm</label>
+        </div>
         <button type="submit">submit</button>
       </form>
       { error && error.map((item, index) => <p key={index}>{item.msg}</p> )}
     </div>
+  
   )
 }
 
