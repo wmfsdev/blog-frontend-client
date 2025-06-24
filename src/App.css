@@ -70,7 +70,6 @@ a {
 }
 
 /* SIGNUP = SIGNIN */
-
 .signup, .login {
   display: flex;
   flex-direction: column;
@@ -96,7 +95,6 @@ a {
 }
 
 /* ARTICLES */
-
 .articles {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -121,6 +119,10 @@ li > a:visited, a:link {
 .articles div:first-child {
   grid-column: span 9;
   grid-row: span 2;
+}
+
+.articles div:nth-child(n+4) {
+  grid-column: span 4;
 }
 
 .article-post {
@@ -346,7 +348,6 @@ textarea:focus {
 
   .comments-wrapper form {
     flex-direction: column;
-    /* gap: 40px */
   }
 
   .comment-form button {
