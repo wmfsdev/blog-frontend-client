@@ -20,9 +20,9 @@ const Signup = () => {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/signup-form`, {
         method: "POST",
         body: JSON.stringify({
-            username: username,
-            password: password,
-            confirm: confirmPwd,
+          username: username,
+          password: password,
+          confirm: confirmPwd,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
@@ -47,7 +47,6 @@ const Signup = () => {
   }
   
   return (
-
     <div className="signup">
       <h1>SIGNUP</h1>
       <form method="post" onSubmit={handleSubmit} className="material-form">
@@ -67,7 +66,6 @@ const Signup = () => {
       </form>
       { error && error.map((item, index) => <p key={index}>{item.msg}</p> )}
     </div>
-  
   )
 }
 
